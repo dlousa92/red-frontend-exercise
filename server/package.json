@@ -1,0 +1,16 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"jsdoc-to-markdown": "^5.0.3"
+	},
+	"scripts": {
+		"document": "jsdoc2md ./**/*.js > README.md",
+		"start": "node ./src/index.js"
+	},
+	"dependencies": {
+		"json-server": "^0.16.3"
+	}
+}
