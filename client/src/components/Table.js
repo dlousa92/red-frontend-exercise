@@ -1,14 +1,25 @@
 import React from "react";
 import api from "../api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faArrowUp,
+	faArrowDown,
+	faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Table = ({ records, onTitleClick, onOpenInfoClick }) => {
 	console.log(records);
 	return (
-		<table style={{ width: 750 }}>
+		<table style={{ width: 1000 }}>
 			<thead>
 				<tr>
 					{api.DATA_PROPS.map((head) => (
-						<th>{head}</th>
+						<th style={{ width: 100 }}>
+							{head}
+							<button onClick={onTitleClick}>
+								<FontAwesomeIcon icon={faArrowRight} />
+							</button>
+						</th>
 					))}
 				</tr>
 			</thead>

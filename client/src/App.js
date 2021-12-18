@@ -16,6 +16,7 @@ const App = () => {
 		// Change the order of the items when the head row item of the table gets clicked.
 		// if a column title is clicked, the records should get ordered by that key in an ascending way
 		// if it is clicked again it should toggle the sort order to be descending
+		console.log("i was clicked");
 	};
 
 	const handleOpenInfo = (record) => {
