@@ -8,7 +8,7 @@
 - [x] Update App.js so it fetches the data from the server correctly
 - [x] Update Table.js so it can display a table of elements in any way you consider optimal
 - [x] Update App.js and Table.js so records can be re-ordered with table title row clicks.
-- [ ] Create a Popup.js component [using CRA CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
+- [x] Create a Popup.js component [using CRA CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
 - [x] Update App.js and Table.js so the custom Popup.js can be displayed when clicking a "more info" button that should be present in each row of the table.
 - [ ] (hint) use DATA_PROPS as needed to interact with the server
 - [ ] (hint) use ORDERS as needed to interact with the server
