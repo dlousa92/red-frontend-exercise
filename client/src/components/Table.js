@@ -24,7 +24,15 @@ const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 							>
 								<h5>{head.toUpperCase()}</h5>
 							</button>
-							{sortedItem === head ? <FontAwesomeIcon icon={faArrowUp} /> : ""}
+							{sortedItem.item === head ? (
+								<FontAwesomeIcon
+									icon={
+										sortedItem.order === api.ORDERS[0] ? faArrowUp : faArrowDown
+									}
+								/>
+							) : (
+								""
+							)}
 						</th>
 					))}
 				</tr>
