@@ -40,15 +40,34 @@ const DATA_PROPS = ["id", "rank", "points", "name", "age"];
 const ORDERS = ["asc", "desc"];
 
 /**
- * getData function. It should get the data sorted by the provided key and order
+ * server url
+ */
+const url = "http://localhost:3015/people";
+
+/**
+ *  GET function. It should get the data sorted by the provided key and order
  * @param {string} sortBy
  * @param {string} order
  */
 const GET = (sortBy, order) => {
-	const blob = new Blob([JSON.stringify(DEMO_RECORDS)], {
-		type: "application/json",
-	});
-	return Promise.resolve(new Response(blob, { status: 200 }));
+	return fetch(url)
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			const unsortedData = data;
+			if (order === ORDERS[0]) {
+				const sortedData = unsortedData.sort((a, b) =>
+					a[sortBy] > b[sortBy] ? 1 : b[sortBy] > a[sortBy] ? -1 : 0
+				);
+				return sortedData;
+			}
+
+			const sortedData = unsortedData.sort((a, b) =>
+				a[sortBy] < b[sortBy] ? 1 : b[sortBy] < a[sortBy] ? -1 : 0
+			);
+			return sortedData;
+		});
 };
 
 const api = {
