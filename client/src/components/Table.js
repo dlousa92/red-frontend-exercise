@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../api";
 import Popup from "./Popup";
+import tableStyles from "./table.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,30 +22,17 @@ const Table = ({
 		onOpenInfoClick(true);
 	};
 	return (
-		<table
-			style={{
-				width: 1000,
-				borderSpacing: "10px 15px",
-				borderCollapse: "separate",
-			}}
-		>
+		<table className={tableStyles.table}>
 			<Popup
 				isPopupOpen={isPopupOpen}
 				setIsPopupOpen={setIsPopupOpen}
 				popupContent={popupContent}
 			/>
-			<thead>
+			<thead className={tableStyles.tableHead}>
 				<tr>
 					{api.DATA_PROPS.map((head, i) => (
-						<th style={{ width: 100 }} key={i}>
-							<button
-								onClick={onTitleClick}
-								style={{
-									backgroundColor: "transparent",
-									border: "none",
-									outline: "none",
-								}}
-							>
+						<th className={tableStyles.tableHeader} key={i}>
+							<button onClick={onTitleClick}>
 								<h5>{head.toUpperCase()}</h5>
 							</button>
 							{sortedItem.item === head ? (
@@ -60,7 +48,7 @@ const Table = ({
 					))}
 				</tr>
 			</thead>
-			<tbody>
+			<tbody className={tableStyles.tableBody}>
 				{records &&
 					records.map((record) => {
 						return (
@@ -78,23 +66,21 @@ const Table = ({
 
 const TableRow = ({ record, handlePopupButtonClick }) => {
 	return (
-		<>
-			<tr>
-				{Object.keys(record).map((val) =>
-					val === "description" ? (
-						<button
-							key={val}
-							description={record[val]}
-							onClick={handlePopupButtonClick}
-						>
-							More Info
-						</button>
-					) : (
-						<td key={val}>{record[val]}</td>
-					)
-				)}
-			</tr>
-		</>
+		<tr>
+			{Object.keys(record).map((val) =>
+				val === "description" ? (
+					<button
+						key={val}
+						description={record[val]}
+						onClick={handlePopupButtonClick}
+					>
+						More Info
+					</button>
+				) : (
+					<td key={val}>{record[val]}</td>
+				)
+			)}
+		</tr>
 	);
 };
 
