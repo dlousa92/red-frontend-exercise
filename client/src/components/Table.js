@@ -16,6 +16,7 @@ const Table = ({
 	const [popupContent, setPopupContent] = useState();
 
 	const handlePopupButtonClick = (event) => {
+		// gets the description content from the button attribute and sets it as the popup content
 		const description = event.target.getAttribute("description");
 
 		setPopupContent(description);

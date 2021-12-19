@@ -42,6 +42,7 @@ const App = () => {
 	};
 
 	const handleOpenInfo = () => {
+		// Opens popup when user clicks more info button
 		setIsPopupOpen(true);
 	};
 
