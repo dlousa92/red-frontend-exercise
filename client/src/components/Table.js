@@ -1,11 +1,7 @@
 import React from "react";
 import api from "../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faArrowUp,
-	faArrowDown,
-	faArrowRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 	return (

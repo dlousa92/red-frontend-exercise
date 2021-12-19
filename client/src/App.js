@@ -25,7 +25,6 @@ const App = () => {
 		// if it is clicked again it should toggle the sort order to be descending
 
 		if (prevSortedItem.current.item === event.target.innerText.toLowerCase()) {
-			console.log("same target");
 			setSortedItem({
 				item: event.target.innerText.toLowerCase(),
 				order:
