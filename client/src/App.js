@@ -9,6 +9,7 @@ const App = () => {
 		item: api.DATA_PROPS[0],
 		order: api.ORDERS[0],
 	});
+	const [isPopupOpen, setIsPopupOpen] = useState(false);
 	const prevSortedItem = useRef();
 
 	// // use api.GET method to fetch the records from the server on component mount and whenever a user sorts by new category
@@ -40,9 +41,10 @@ const App = () => {
 		}
 	};
 
-	const handleOpenInfo = (record) => {
-		// Open a popup displaying the record information
+	const handleOpenInfo = () => {
+		setIsPopupOpen(true);
 	};
+
 	return (
 		<div className="container">
 			<header className="text-center my-4">
@@ -54,6 +56,8 @@ const App = () => {
 				onOpenInfoClick={handleOpenInfo}
 				records={records}
 				sortedItem={sortedItem}
+				isPopupOpen={isPopupOpen}
+				setIsPopupOpen={setIsPopupOpen}
 			/>
 		</div>
 	);
