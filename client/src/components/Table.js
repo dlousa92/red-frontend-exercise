@@ -13,7 +13,7 @@ const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 			<thead>
 				<tr>
 					{api.DATA_PROPS.map((head) => (
-						<th style={{ width: 100 }}>
+						<th style={{ width: 120 }}>
 							<button
 								onClick={onTitleClick}
 								style={{
@@ -23,12 +23,8 @@ const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 								}}
 							>
 								<h5>{head.toUpperCase()}</h5>
-								{sortedItem === head ? (
-									<FontAwesomeIcon icon={faArrowDown} />
-								) : (
-									""
-								)}
 							</button>
+							{sortedItem === head ? <FontAwesomeIcon icon={faArrowUp} /> : ""}
 						</th>
 					))}
 				</tr>
