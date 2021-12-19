@@ -9,11 +9,17 @@ import {
 
 const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 	return (
-		<table style={{ width: 1000 }}>
+		<table
+			style={{
+				width: 1000,
+				borderSpacing: "10px 15px",
+				borderCollapse: "separate",
+			}}
+		>
 			<thead>
 				<tr>
-					{api.DATA_PROPS.map((head) => (
-						<th style={{ width: 120 }}>
+					{api.DATA_PROPS.map((head, i) => (
+						<th style={{ width: 100 }} key={i}>
 							<button
 								onClick={onTitleClick}
 								style={{
@@ -40,7 +46,7 @@ const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 			<tbody>
 				{records &&
 					records.map((record) => {
-						return <TableRow record={record} />;
+						return <TableRow record={record} key={record.id} />;
 					})}
 			</tbody>
 		</table>
@@ -48,11 +54,16 @@ const Table = ({ records, onTitleClick, onOpenInfoClick, sortedItem }) => {
 };
 
 const TableRow = ({ record }) => {
+	console.log(record);
 	return (
 		<tr>
-			{Object.keys(record).map((val) => (
-				<td>{record[val]}</td>
-			))}
+			{Object.keys(record).map((val) =>
+				val === "description" ? (
+					<button onClick={() => alert(record[val])}>More Info</button>
+				) : (
+					<td key={val}>{record[val]}</td>
+				)
+			)}
 		</tr>
 	);
 };
